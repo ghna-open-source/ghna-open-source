@@ -1,0 +1,44 @@
+.container {
+    margin-top: 20px;
+}
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.controls button {
+    margin-left: 5px;
+}
+pre {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    overflow: auto;
+    white-space: pre-wrap;
+}
+.lyrics-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.lyrics-col {
+    flex: 1;
+    padding: 5px;
+    min-width: 150px; /* Adjust minimum width for better wrapping */
+    word-wrap: break-word; /* Ensure long words wrap properly */
+}
+.editable {
+    display: none; /* Hide input fields initially */
+}
+
+.song-info .form-group
+{
+    width: 45%;
+}
+
+.song-info
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap : 1rem;
+    width: 100%
+}

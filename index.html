@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghna Open Source</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Ghna Open Source</h1>
+        <div class="input-group mb-3">
+            <input type="file" class="form-control" id="uploadFile" accept=".json" onchange="handleFileUpload(event)" style="display: none;">
+            <div class="input-group-append">
+                <label class="input-group-text" for="uploadFile">Upload Song</label>
+            </div>
+        </div>
+        <form id="songForm">
+
+            <div class="song-info">
+                <div class="form-group">
+                    <label for="title">Song Title:</label>
+                    <input type="text" class="form-control" id="title" placeholder="Enter the song title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="artist">Artist Name:</label>
+                    <input type="text" class="form-control" id="artist" placeholder="Enter the artist's name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="language">Original Language:</label>
+                    <select class="form-control" id="language" required>
+                        <option value="">Select Language</option>
+                        <option value="Darja">Darja</option>
+                        <option value="Tamazight">Tamazight</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Year of Release:</label>
+                    <input type="number" class="form-control" id="year" placeholder="Enter the year of release" min="1900" max="2024" required>
+                </div>
+            </div>
+
+            <h2>Lyrics and Translations</h2>
+            <div class="form-group">
+                <label for="original">Original Line:</label>
+                <input type="text" class="form-control" id="original" placeholder="Enter the original lyric" required>
+            </div>
+
+            <div class="form-group">
+                <label for="translation">English Translation:</label>
+                <input type="text" class="form-control" id="translation" placeholder="Enter the translation" required>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="addLine()">Add Line</button>
+        </form>
+
+        <h2 class="mt-4">Added Lines:</h2>
+        <ul id="addedLines" class="list-group"></ul>
+
+        <button type="button" class="btn btn-success mt-3" onclick="downloadJSON()">Download song</button>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to JS file -->
+</body>
+</html>
