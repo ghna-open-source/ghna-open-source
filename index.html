@@ -64,6 +64,37 @@
         <button type="button" class="btn btn-success mt-3" onclick="downloadJSON()">Download song</button>
     </div>
 
+    <!-- Collapsible README Section -->
+    <div class="container mt-5">
+        <button class="btn btn-info" data-toggle="collapse" data-target="#readme-content" aria-expanded="false" aria-controls="readme-content">
+            General Guidelines
+        </button>
+        <div id="readme-content" class="collapse mt-3"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> <!-- Load Marked library -->
+    <script>
+        // Fetch the README.md from GitHub
+        const githubReadmeUrl = 'https://raw.githubusercontent.com/ghna-open-source/ghna-open-source/main/README.md';
+
+        fetch(githubReadmeUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(text => {
+                document.getElementById('readme-content').innerHTML = marked.parse(text); // Using marked.parse() for compatibility
+            })
+            .catch(error => {
+                console.error('Error fetching the README:', error);
+            });
+    </script>
+
     <script src="script.js"></script> <!-- Link to JS file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS for collapse functionality -->
+
 </body>
 </html>
